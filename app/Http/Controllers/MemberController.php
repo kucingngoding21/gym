@@ -6,6 +6,8 @@ use App\Models\Instruktur;
 use App\Models\Member;
 use App\Models\Role;
 use App\Models\User;
+use PDF;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -188,4 +190,12 @@ class MemberController extends Controller
 
         return redirect(route('index.member'))->with('message','Data Member Telah Dihapus');
     }
+
+    public function printCard(Request $request)
+    {
+        $data = Member::join('users','users.id','=','members.id_user')->where('members.id_user', $request->id)->first();
+        $pdf = PDF::loadView('backend.member.card', compact('data'));
+        return $pdf->stream();
+    }
+
 }

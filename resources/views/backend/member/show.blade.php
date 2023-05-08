@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="text-right p-2">
-                <a href="" class="btn btn-sm btn-primary">Cetak Member Card</a>
+                <a href="{{ route('member.print', ['id' => $data->id_user]) }}" target="_blank" class="btn btn-sm btn-primary">Cetak Member Card</a>
             </div>
         </div>
     </div>

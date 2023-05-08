@@ -95,12 +95,26 @@
         </div>
     @endif
     <div class="my-2">
-        <form action="/backend/jadwal-harian-instruktur" method="GET">
-            @csrf
-            <div class="input-group mb-3">
-                <input type="date" class="form-control" value="{{ old('start_date') }}" required name="start_date">
-                <input type="date" class="form-control" required name="end_date">
-                <button class="btn btn-primary" type="submit">GET</button>
+        <form>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Tanggal Awal</label>
+                        <input type="date" class="form-control" name="tglawal" id="tglawal" >
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Tanggal Akhir</label>
+                        <input type="date" class="form-control" name="tglakhir" id="tglakhir" >
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="d-grid gap-2">
+                        <a href=# onclick="this.href='{{ url('/laporan/') }}'+'/'+document.getElementById('tglawal').value+'/'
+                                + document.getElementById('tglakhir').value" class="btn btn-success">Cari</a>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -145,6 +159,11 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end mt-3">
+                    @if(isset($tglawal) && isset($tglakhir))
+                    <a href="{{ route('jadwal-harian.print', ['tglawal' => $tglawal, 'tglakhir'=>$tglakhir]) }}" class="btn btn-primary" target="_blank">Print</a>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

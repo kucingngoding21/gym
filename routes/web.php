@@ -53,6 +53,7 @@ Route::get('/backend/member-edit/{id}',[App\Http\Controllers\MemberController::c
 Route::get('/backend/member-show/{id}',[App\Http\Controllers\MemberController::class, 'show'])->name('show.member');
 Route::put('/backend/member-update/{id}',[App\Http\Controllers\MemberController::class, 'update'])->name('update.member');
 Route::get('/backend/member-destroy/{id}',[App\Http\Controllers\MemberController::class, 'destroy'])->name('destroy.member');
+Route::get('member/print', [App\Http\Controllers\MemberController::class, 'printCard'])->name('member.print');
 
 //jadwal (owner)
 Route::get('/backend/jadwal-instruktur',[App\Http\Controllers\JadwalController::class, 'index'])->name('index.jadwal');
@@ -64,4 +65,6 @@ Route::put('/backend/jadwal-instruktur-update/{id}',[App\Http\Controllers\Jadwal
 Route::get('/backend/jadwal-instruktur-destroy/{id}',[App\Http\Controllers\JadwalController::class, 'destroy'])->name('destroy.jadwal');
 //jadwal Harian (owner)
 Route::get('/backend/jadwal-harian-instruktur',[App\Http\Controllers\JadwalController::class, 'indexCetak'])->name('index.cetakJadwal');
+Route::get('/laporan/{tglawal}/{tglakhir}', [App\Http\Controllers\JadwalController::class, 'review']);
+Route::get('jadwal-harian/print', [App\Http\Controllers\JadwalController::class, 'review'])->name('jadwal-harian.print');
 
