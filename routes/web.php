@@ -55,6 +55,29 @@ Route::put('/backend/member-update/{id}',[App\Http\Controllers\MemberController:
 Route::get('/backend/member-destroy/{id}',[App\Http\Controllers\MemberController::class, 'destroy'])->name('destroy.member');
 Route::get('member/print', [App\Http\Controllers\MemberController::class, 'printCard'])->name('member.print');
 
+// depositutama (kasir)
+Route::get('/backend/Deposit',[App\Http\Controllers\DepositutamaController::class, 'index'])->name('index.depositutama');
+Route::get('/backend/Deposit-create',[App\Http\Controllers\DepositutamaController::class, 'create'])->name('create.depositutama');
+Route::post('/backend/Deposit-store',[App\Http\Controllers\DepositutamaController::class, 'store'])->name('store.depositutama');
+Route::get('/backend/Deposit-edit/{id}',[App\Http\Controllers\DepositutamaController::class, 'edit'])->name('edit.depositutama');
+Route::get('/backend/Deposit-show/{id}',[App\Http\Controllers\DepositutamaController::class, 'show'])->name('show.depositutama');
+Route::put('/backend/Deposit-update/{id}',[App\Http\Controllers\DepositutamaController::class, 'update'])->name('update.depositutama');
+Route::get('/backend/Deposit-destroy/{id}',[App\Http\Controllers\DepositutamaController::class, 'destroy'])->name('destroy.depositutama');
+Route::get('/backend/Deposit-print',[App\Http\Controllers\DepositutamaController::class, 'printStruk'])->name('print.depositutama');
+
+// depositkelas (kasir)
+Route::get('/backend/depositkelas', [App\Http\Controllers\DepositkelasController::class, 'index'])->name('index.depositkelas');
+Route::get('/backend/depositkelas/create', [App\Http\Controllers\DepositkelasController::class, 'create'])->name('create.depositkelas');
+Route::post('/backend/depositkelas/store', [App\Http\Controllers\DepositkelasController::class, 'store'])->name('store.depositkelas');
+Route::get('/backend/depositkelas/edit/{id}', [App\Http\Controllers\DepositkelasController::class, 'edit'])->name('edit.depositkelas');
+Route::get('/backend/depositkelas/show/{id}', [App\Http\Controllers\DepositkelasController::class, 'show'])->name('show.depositkelas');
+Route::put('/backend/depositkelas/update/{id}', [App\Http\Controllers\DepositkelasController::class, 'update'])->name('update.depositkelas');
+Route::get('/backend/depositkelas/destroy/{id}', [App\Http\Controllers\DepositkelasController::class, 'destroy'])->name('destroy.depositkelas');
+Route::get('/backend/Deposit-print-kelas',[App\Http\Controllers\DepositkelasController::class, 'printStruk'])->name('print.depositkelas');
+
+Route::get('/getBiaya/{kelasId}', [App\Http\Controllers\DepositkelasController::class, 'getBiaya'])->name('getDetails');
+
+
 //jadwal (owner)
 Route::get('/backend/jadwal-instruktur',[App\Http\Controllers\JadwalController::class, 'index'])->name('index.jadwal');
 Route::get('/backend/jadwal-instruktur-create',[App\Http\Controllers\JadwalController::class, 'create'])->name('create.jadwal');
@@ -63,6 +86,23 @@ Route::get('/backend/jadwal-instruktur-edit/{id}',[App\Http\Controllers\JadwalCo
 Route::get('/backend/jadwal-instruktur-show/{id}',[App\Http\Controllers\JadwalController::class, 'show'])->name('show.jadwal');
 Route::put('/backend/jadwal-instruktur-update/{id}',[App\Http\Controllers\JadwalController::class, 'update'])->name('update.jadwal');
 Route::get('/backend/jadwal-instruktur-destroy/{id}',[App\Http\Controllers\JadwalController::class, 'destroy'])->name('destroy.jadwal');
+
+Route::get('/backend/kelas',[App\Http\Controllers\KelasController::class, 'index'])->name('index.kelas');
+Route::get('/backend/kelas-create',[App\Http\Controllers\KelasController::class, 'create'])->name('create.kelas');
+Route::post('/backend/kelas-store',[App\Http\Controllers\KelasController::class, 'store'])->name('store.kelas');
+Route::get('/backend/kelas-edit/{id}',[App\Http\Controllers\KelasController::class, 'edit'])->name('edit.kelas');
+Route::get('/backend/kelas-show/{id}',[App\Http\Controllers\KelasController::class, 'show'])->name('show.kelas');
+Route::put('/backend/kelas-update/{id}',[App\Http\Controllers\KelasController::class, 'update'])->name('update.kelas');
+Route::get('/backend/kelas-destroy/{id}',[App\Http\Controllers\KelasController::class, 'destroy'])->name('destroy.kelas');
+
+Route::get('/backend/daftarijin',[App\Http\Controllers\DaftarIjinController::class, 'index'])->name('index.daftarijin');
+Route::get('/backend/daftarijin-create',[App\Http\Controllers\DaftarIjinController::class, 'create'])->name('create.daftarijin');
+Route::post('/backend/daftarijin-store',[App\Http\Controllers\DaftarIjinController::class, 'store'])->name('store.daftarijin');
+Route::get('/backend/daftarijin-edit/{id}',[App\Http\Controllers\DaftarIjinController::class, 'edit'])->name('edit.daftarijin');
+Route::get('/backend/daftarijin-show/{id}',[App\Http\Controllers\DaftarIjinController::class, 'show'])->name('show.daftarijin');
+Route::put('/backend/daftarijin-update/{id}',[App\Http\Controllers\DaftarIjinController::class, 'update'])->name('update.daftarijin');
+Route::get('/backend/daftarijin-destroy/{id}',[App\Http\Controllers\DaftarIjinController::class, 'destroy'])->name('destroy.daftarijin');
+
 //jadwal Harian (owner)
 Route::get('/backend/jadwal-harian-instruktur',[App\Http\Controllers\JadwalController::class, 'indexCetak'])->name('index.cetakJadwal');
 Route::get('/laporan/{tglawal}/{tglakhir}', [App\Http\Controllers\JadwalController::class, 'review']);
